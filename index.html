@@ -245,6 +245,122 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/01/剑指offer系列之链表/" itemprop="url">
+                  剑指offer系列之链表
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-01T10:43:07+08:00" content="2016-09-01">
+              2016-09-01
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>题目：</strong> 输入一个链表，从尾到头打印链表每个节点的值。 </p>
+<p><strong>基本思想：</strong> 利用栈的后进先出特性，先把链表中的东西依次放入栈中，然后按顺序把栈中的东西pop出来。</p>
+<p><strong>代码部分：</strong></p>
+<pre><code>import java.util.ArrayList;
+import java.util.Stack;
+
+public class Solution {
+public ArrayList&lt;Integer&gt; printListFromTailToHead(ListNode listNode) {
+    Stack&lt;Integer&gt; stack = new Stack&lt;Integer&gt;();
+
+    while(listNode != null){
+        stack.push(listNode.val);
+        listNode = listNode.next;
+    }
+
+    ArrayList&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;();
+
+    while(!stack.isEmpty()){
+        list.add(stack.pop());
+    }
+    return list;
+}
+}
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/29/css布局回顾/" itemprop="url">
                   css布局回顾
                 </a>
@@ -468,7 +584,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

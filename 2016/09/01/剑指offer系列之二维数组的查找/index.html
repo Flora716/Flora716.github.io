@@ -84,12 +84,25 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Flora">
-<meta property="og:url" content="http://yoursite.com/archives/2016/08/index.html">
+<meta name="description" content="题目： 在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。 
+基本思想： 因为二维数组从左到右从上到下都是有序的， 所以从右上角开始遍历， 若右上角的数小于要找的值，则向下一行寻找，行+1， 若右上角的数大于要找的值，则向该行的前一列寻找，即列-1。
+代码部分：
+public cla">
+<meta property="og:type" content="article">
+<meta property="og:title" content="剑指offer系列之二维数组的查找">
+<meta property="og:url" content="http://yoursite.com/2016/09/01/剑指offer系列之二维数组的查找/index.html">
 <meta property="og:site_name" content="Flora">
+<meta property="og:description" content="题目： 在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。 
+基本思想： 因为二维数组从左到右从上到下都是有序的， 所以从右上角开始遍历， 若右上角的数小于要找的值，则向下一行寻找，行+1， 若右上角的数大于要找的值，则向该行的前一列寻找，即列-1。
+代码部分：
+public cla">
+<meta property="og:updated_time" content="2016-09-01T02:52:41.928Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Flora">
+<meta name="twitter:title" content="剑指offer系列之二维数组的查找">
+<meta name="twitter:description" content="题目： 在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。 
+基本思想： 因为二维数组从左到右从上到下都是有序的， 所以从右上角开始遍历， 若右上角的数小于要找的值，则向下一行寻找，行+1， 若右上角的数大于要找的值，则向该行的前一列寻找，即列-1。
+代码部分：
+public cla">
 
 
 
@@ -110,9 +123,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2016/08/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/09/01/剑指offer系列之二维数组的查找/"/>
 
-  <title> 归档 | Flora </title>
+  <title> 剑指offer系列之二维数组的查找 | Flora </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -133,7 +146,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -221,66 +234,146 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 4 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
 
-      
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                剑指offer系列之二维数组的查找
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-01T10:52:18+08:00" content="2016-09-01">
+              2016-09-01
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
       
 
       
+        <p><strong>题目：</strong> 在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。 </p>
+<p><strong>基本思想：</strong> 因为二维数组从左到右从上到下都是有序的，<br> 所以从右上角开始遍历，<br> 若右上角的数小于要找的值，则向下一行寻找，行+1，<br> 若右上角的数大于要找的值，则向该行的前一列寻找，即列-1。</p>
+<p><strong>代码部分：</strong></p>
+<pre><code>public class findFromMatrix2 {
+public static boolean Find(int [][] array, int num){
+    boolean found = false;
+    int row = 0;
+    int col = array[0].length -1;
+    if(array != null &amp;&amp; row &gt; 0 &amp;&amp; col &gt;0){
+        while(row &lt; array.length - 1 &amp;&amp; col &gt;= 0){
+            if(num == array[row][col]){
+                found = true;
+            }else if(num &gt; array[row][col]){
+                ++row;
+            }else{
+                --col;
+            }
+        }
+    }
+    return found;
+}
+
+public static void main(String[] args){
+    int arrays[][] = {{1,2,8,9},{2,4,9,12},{4,7,10,13},{6,8,11,15}};
+    if(Find(arrays,5)){
+        System.out.println(&quot;二维数组中存在这样的一个数！&quot;);
+    }else{
+        System.out.println(&quot;二维数组中不存在这样的一个数！&quot;);
+    }
+  }
+}
+</code></pre>
+      
+    </div>
+
+    <div>
+      
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/01/剑指offer系列之链表/" rel="next" title="剑指offer系列之链表">
+                <i class="fa fa-chevron-left"></i> 剑指offer系列之链表
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
         </div>
       
-      
 
       
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/08/29/css布局回顾/" itemprop="url">
-              
-                <span itemprop="name">css布局回顾</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-29T21:43:43+08:00"
-              content="2016-08-29" >
-          08-29
-        </time>
-      </div>
-
-    </header>
+      
+    </footer>
   </article>
 
 
 
-    
-
-  </section>
-
-  
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -288,6 +381,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -307,8 +404,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/touxiang2.png"
@@ -355,6 +461,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -451,11 +568,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
 
 
   

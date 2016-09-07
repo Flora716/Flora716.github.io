@@ -245,6 +245,156 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/07/剑指offer之重建二叉树/" itemprop="url">
+                  剑指offer之重建二叉树
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-07T21:55:11+08:00" content="2016-09-07">
+              2016-09-07
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>题目：</strong> 输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。     </p>
+<p><strong>解题思路：</strong> </p>
+<ol>
+<li>先序第一个节点是根节点node</li>
+<li>把根节店带入到中序遍历中，确定位置为p，确定左右子树的中序遍历</li>
+<li>先序遍历第二个位置到p，即node左子树的先序遍历，剩下的就是node右子树的先序遍历</li>
+<li><p>找出四个数组，递归</p>
+<pre><code>public class Solution {
+ public TreeNode reConstructBinaryTree(int [] pre,int [] in) {
+
+     TreeNode root = new TreeNode(pre[0]);  //前序的第一个节点为根节点
+
+     int len = pre.length;
+     //当只有一个节点时
+     if(len == 1){
+         root.left=null;
+         root.right=null;
+         return root;
+     }
+</code></pre></li>
+</ol>
+<pre><code>    int rootval = root.val;
+    int i;
+    for(i =0;i&lt;len;i++){
+        if(rootval == in[i])
+            break;
+    }
+
+    //创建左子树
+    if(i&gt;0){
+        int[] pr = new int[i];
+        int[] ino = new int[i];
+        for(int j=0;j&lt;i;j++){
+            pr[j]=pre[j+1];   //左子树的先序遍历
+        }
+        for(int j=0;j&lt;i;j++){
+            ino[j]=in[j];    //左子树的中序遍历
+        }
+        root.left = reConstructBinaryTree(pr,ino);
+    }else{
+        root.left = null;
+    }
+    //创建右子树
+    if(len-i-1&gt;0){
+        int[] pr = new int[len-i-1];
+        int[] ino = new int[len-i-1];
+        for(int j=i+1;j&lt;len;j++){
+            pr[j-i-1]=pre[j];    //右子树的先序遍历
+            ino[j-i-1]=in[j];     //右子树的中序遍历
+        }
+        root.right = reConstructBinaryTree(pr,ino);
+    }else{
+        root.right = null;
+    }
+    return root;
+}
+</code></pre><p>}</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/01/剑指offer系列之二维数组的查找/" itemprop="url">
                   剑指offer系列之二维数组的查找
                 </a>
@@ -708,7 +858,7 @@ public ArrayList&lt;Integer&gt; printListFromTailToHead(ListNode listNode) {
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
